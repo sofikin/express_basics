@@ -9,11 +9,14 @@ app.set('views', path.join(__dirname, 'views'));
 // add views template engine
 app.set('view engine', 'ejs');
 
-app.get('/user/:username', (req, res)=> {
-    // get parameter data from address row
-    let user = req.params.username;
-    // use this data in template
-    res.render('index.ejs', {username : user});
+app.get('/questions', (req, res)=> {
+
+    let questions = [
+        {title: "What is Node.js?", user : "Kadi", votes : "10"},
+        {title: "What is Express.js?", user : "Mike", votes : "8"}
+    ]
+
+    res.render('index', {questions:questions})
 });
 
 app.listen(port, ()=>{
