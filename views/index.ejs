@@ -7,9 +7,16 @@
 <body>
 <h1>Questions about Express</h1>
 <% questions.forEach((question)=> { %>
+    <% if (question['user'].toLowerCase() === 'kadi') { %>
     <h2><%= question['title'] %></h2>
     <p><%= question['user'] %></p>
     <p><%= question['votes'] %></p>
+    <% } else {%>
+    <h1>Asked by other users:</h1>
+    <h2><%= question['title'] %></h2>
+    <p><%= question['user'] %></p>
+    <p><%= question['votes'] %></p>
+<% } %>
 <% }); %>
 </body>
 </html>
