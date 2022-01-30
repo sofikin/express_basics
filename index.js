@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+// add public directory
+app.use(express.static('public'));
 
 app.get('/user/:username', (req, res)=> {
     // get parameter data from address row
